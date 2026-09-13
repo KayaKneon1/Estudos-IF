@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questão 6</title>
+  </head>
+<body>
+    <div id="main" class="h-screen flex items-center justify-center">
+        <form 
+            class="bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            id="meuForm" action="" method="get"
+            >
+            <div class="mb-4 ">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="c">
+                  Digite a temperatura em °C
+                </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="number" name="c" id="c">
+            </div>
+            
+            <div class="flex items-center justify-center">
+                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+    <script>
+
+        document.getElementById("meuForm").addEventListener("submit", function (e){
+            e.preventDefault()
+
+            let cInput = document.getElementById("c")
+            let c = parseInt(cInput.value)
+
+            let f = (c * 9/5) + 32;
+
+            document.getElementById("meuForm").remove()
+
+            document.getElementById("main").innerHTML = `
+            <div class='min-w-80 bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col'>
+                <h1 class='font-bold '> 
+                  Resultado: 
+                </h1>
+                <p>${c}°C equivale a ${f.toFixed(2)}°F</p>
+                </div>
+                `
+        })
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
+</html>

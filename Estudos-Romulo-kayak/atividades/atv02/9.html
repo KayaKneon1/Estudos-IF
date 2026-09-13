@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questão 9</title>
+  </head>
+  <body>
+    <section id="sec9">
+      <h2>9. Manipular Formulário</h2>
+      <p>Cadastre professores, alunos, livros e artigos:</p>
+
+      <form id="formProfessor">
+        <h3>Professor</h3>
+        <label>Nome: <input type="text" id="profNome" required /></label>
+        <label
+          >Disciplina: <input type="text" id="profDisciplina" required
+        /></label>
+        <label
+          >Tempo de Experiência (anos):
+          <input type="number" id="profTempo" required
+        /></label>
+        <button type="button" onclick="criarProfessor()">
+          Cadastrar Professor
+        </button>
+      </form>
+
+      <form id="formAluno">
+        <h3>Aluno</h3>
+        <label>Nome: <input type="text" id="alunoNome" required /></label>
+        <label
+          >Matrícula: <input type="text" id="alunoMatricula" required
+        /></label>
+        <label>Curso: <input type="text" id="alunoCurso" required /></label>
+        <button type="button" onclick="criarAluno()">Cadastrar Aluno</button>
+      </form>
+
+      <form id="formLivro">
+        <h3>Livro</h3>
+        <label>Título: <input type="text" id="livroTitulo" required /></label>
+        <label>Autor: <input type="text" id="livroAutor" required /></label>
+        <label>Ano: <input type="number" id="livroAno" required /></label>
+        <button type="button" onclick="criarLivro()">Cadastrar Livro</button>
+      </form>
+
+      <form id="formArtigo">
+        <h3>Artigo</h3>
+        <label>Título: <input type="text" id="artigoTitulo" required /></label>
+        <label>Autor: <input type="text" id="artigoAutor" required /></label>
+        <label>Ano: <input type="number" id="artigoAno" required /></label>
+        <button type="button" onclick="criarArtigo()">Cadastrar Artigo</button>
+      </form>
+
+      <h3>Professores Cadastrados:</h3>
+      <ul id="listaProf"></ul>
+      <h3>Alunos Cadastrados:</h3>
+      <ul id="listaAlu"></ul>
+      <h3>Livros Cadastrados:</h3>
+      <ul id="listaLiv"></ul>
+      <h3>Artigos Cadastrados:</h3>
+      <ul id="listaArt"></ul>
+    </section>
+
+    <script>
+      const professores = [];
+      const alunos = [];
+      const livros = [];
+      const artigosForm = [];
+
+      function criarProfessor() {
+        const nome = document.getElementById("profNome").value;
+        const disciplina = document.getElementById("profDisciplina").value;
+        const tempo = document.getElementById("profTempo").value;
+
+        const professor = {
+          nome,
+          disciplina,
+          tempoDeExperiencia: parseInt(tempo),
+        };
+
+        professores.push(professor);
+        exibirProfessores();
+        document.getElementById("formProfessor").reset();
+      }
+
+      function exibirProfessores() {
+        const lista = document.getElementById("listaProf");
+        lista.innerHTML = professores
+          .map(
+            (p) =>
+              `<li>${p.nome} - ${p.disciplina} (${p.tempoDeExperiencia} anos)</li>`,
+          )
+          .join("");
+      }
+
+      function criarAluno() {
+        const nome = document.getElementById("alunoNome").value;
+        const matricula = document.getElementById("alunoMatricula").value;
+        const curso = document.getElementById("alunoCurso").value;
+
+        const aluno = { nome, matricula, curso };
+        alunos.push(aluno);
+        exibirAlunos();
+        document.getElementById("formAluno").reset();
+      }
+
+      function exibirAlunos() {
+        const lista = document.getElementById("listaAlu");
+        lista.innerHTML = alunos
+          .map(
+            (a) =>
+              `<li>${a.nome} - Matrícula: ${a.matricula} - Curso: ${a.curso}</li>`,
+          )
+          .join("");
+      }
+
+      function criarLivro() {
+        const titulo = document.getElementById("livroTitulo").value;
+        const autor = document.getElementById("livroAutor").value;
+        const ano = document.getElementById("livroAno").value;
+
+        const livro = {
+          titulo,
+          autor,
+          ano: parseInt(ano),
+        };
+
+        livros.push(livro);
+        exibirLivros();
+        document.getElementById("formLivro").reset();
+      }
+
+      function exibirLivros() {
+        const lista = document.getElementById("listaLiv");
+        lista.innerHTML = livros
+          .map((l) => `<li>${l.titulo} - ${l.autor} (${l.ano})</li>`)
+          .join("");
+      }
+
+      function criarArtigo() {
+        const titulo = document.getElementById("artigoTitulo").value;
+        const autor = document.getElementById("artigoAutor").value;
+        const ano = document.getElementById("artigoAno").value;
+
+        const artigo = {
+          titulo,
+          autor,
+          ano: parseInt(ano),
+        };
+
+        artigosForm.push(artigo);
+        exibirArtigos();
+        document.getElementById("formArtigo").reset();
+      }
+
+      function exibirArtigos() {
+        const lista = document.getElementById("listaArt");
+        lista.innerHTML = artigosForm
+          .map((a) => `<li>${a.titulo} - ${a.autor} (${a.ano})</li>`)
+          .join("");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questão 7</title>
+  </head>
+  <body>
+    <section id="sec7">
+      <h2>7. Função construtora</h2>
+      <p>Funções construtoras para Aluno, Professor, Livro e Artigo:</p>
+      <pre id="out7"></pre>
+    </section>
+
+    <script>
+      function Aluno(nome, matricula, curso) {
+        this.nome = nome;
+        this.matricula = matricula;
+        this.curso = curso;
+        this.apresentar = function () {
+          return `Aluno: ${this.nome}, Matrícula: ${this.matricula}, Curso: ${this.curso}`;
+        };
+      }
+
+      function Professor(nome, disciplina, tempoDeExperiencia) {
+        this.nome = nome;
+        this.disciplina = disciplina;
+        this.tempoDeExperiencia = tempoDeExperiencia;
+        this.apresentar = function () {
+          return `Professor: ${this.nome}, Disciplina: ${this.disciplina}, Experiência: ${this.tempoDeExperiencia} anos`;
+        };
+      }
+
+      function Livro(titulo, autor, ano) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.ano = ano;
+        this.exibirInfo = function () {
+          return `Livro: ${this.titulo} - ${this.autor} (${this.ano})`;
+        };
+      }
+
+      function Artigo(titulo, autor, ano) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.ano = ano;
+        this.exibirDados = function () {
+          return `Artigo: ${this.titulo} - ${this.autor} (${this.ano})`;
+        };
+      }
+
+      const alunoConstrutor = new Aluno("João", "2024001", "Engenharia");
+      const professorConstrutor = new Professor("Maria", "Física", 8);
+      const livroConstrutor = new Livro("1984", "George Orwell", 1949);
+      const artigoConstrutor = new Artigo("IA e Educação", "Souza", 2023);
+
+      let saida7 = "";
+      saida7 += alunoConstrutor.apresentar() + "\n";
+      saida7 += professorConstrutor.apresentar() + "\n";
+      saida7 += livroConstrutor.exibirInfo() + "\n";
+      saida7 += artigoConstrutor.exibirDados() + "\n";
+
+      document.getElementById("out7").textContent = saida7;
+    </script>
+  </body>
+</html>

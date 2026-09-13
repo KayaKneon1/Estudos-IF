@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questão 17</title>
+  </head>
+<body>
+    <div id="main" class="h-screen flex items-center justify-center">
+        <form 
+            class="bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            id="meuForm" action="" method="get"
+            >
+            <div class="mb-4 ">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="num1">
+                  Digite o primeiro número
+                </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="number" name="num1" id="num1">
+            </div>
+            <div class="mb-4 ">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="num2">
+                  Digite o segundo número
+                </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="number" name="num2" id="num2">
+            </div>
+            <div class="mb-4 ">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="num3">
+                  Digite o terceiro número
+                </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="number" name="num3" id="num3">
+            </div>
+
+            <div class="flex items-center justify-center">
+                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+    <script>
+
+        document.getElementById("meuForm").addEventListener("submit", function (e){
+            e.preventDefault()
+
+            let num1Input = document.getElementById("num1")
+            let num2Input = document.getElementById("num2")
+            let num3Input = document.getElementById("num3")
+            let num1 = parseInt(num1Input.value)
+            let num2 = parseInt(num2Input.value)
+            let num3 = parseInt(num3Input.value)
+
+            var resultado = 1
+            var maior = num1
+            
+            if (num2 > maior){
+                maior = num2
+                resultado = 2
+            }
+            if (num3 > maior){
+                maior = num3
+                resultado = 3
+            }
+
+            document.getElementById("meuForm").remove()
+
+            document.getElementById("main").innerHTML = `
+            <div class='min-w-80 bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col'>
+                <h1 class='font-bold '> 
+                  Resultado: 
+                </h1>
+                <p>O maior número é o ${resultado}º</p>
+                </div>
+                `
+            
+        })
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>

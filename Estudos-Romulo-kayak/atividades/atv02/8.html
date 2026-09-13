@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questão 8</title>
+  </head>
+  <body>
+    <section id="sec8">
+      <h2>8. Classes</h2>
+      <p>Classes para Professor, Livro e Artigo:</p>
+      <pre id="out8"></pre>
+    </section>
+
+    <script>
+      class Aluno {
+        constructor(nome, matricula, curso) {
+          this.nome = nome;
+          this.matricula = matricula;
+          this.curso = curso;
+          this.livrosEmprestados = [];
+        }
+
+        emprestarLivro(livro) {
+          this.livrosEmprestados.push(livro);
+        }
+        
+        
+        apresentarA() {
+          return `Meu nome é ${this.nome}, matrícula ${this.matricula}, curso: ${this.curso}, Livros emprestados: ${this.livrosEmprestados}`;
+        }
+      }
+
+      class Professor {
+        constructor(nome, disciplina, tempoDeExperiencia) {
+          this.nome = nome;
+          this.disciplina = disciplina;
+          this.tempoDeExperiencia = tempoDeExperiencia;
+        }
+
+        apresentarP() {
+          return `Professor ${this.nome}, disciplina: ${this.disciplina}, experiência: ${this.tempoDeExperiencia} anos.`;
+        }
+      }
+
+      class Livro {
+        constructor(titulo, autor, ano) {
+          this.titulo = titulo;
+          this.autor = autor;
+          this.ano = ano;
+        }
+        exibirInfo() {
+          return `Livro: ${this.titulo} - ${this.autor} (${this.ano})`;
+        }
+      }
+
+      class Artigo {
+        constructor(titulo, autor, ano) {
+          this.titulo = titulo;
+          this.autor = autor;
+          this.ano = ano;
+        }
+
+        exibirDados() {
+          return `Artigo: ${this.titulo} - ${this.autor} (${this.ano})`;
+        }
+      }
+
+      const AlunoC = new Aluno("Kayque", 202512040025, "TSI");
+      const profC = new Professor("Rômulo", "Estrutura de Dados", 15);
+      const livroC = new Livro("O Hobbit", "Tolkien", 1937);
+      const artigoC = new Artigo("Web Semântica", "Silva", 2020);
+
+      let saida8 = "";
+      saida8 += AlunoC.apresentarA() + "\n";
+      saida8 += profC.apresentarP() + "\n";
+      saida8 += livroC.exibirInfo() + "\n";
+      saida8 += artigoC.exibirDados() + "\n";
+
+      document.getElementById("out8").textContent = saida8;
+    </script>
+  </body>
+</html>

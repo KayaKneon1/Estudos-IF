@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const num1 = parseFloat(prompt("digite o primeiro número: "))
+    const op = prompt("Que operação? (+,-,*,/)")
+    const num2 = parseFloat(prompt("digite o segundo número: "))
+
+    if (op == "+"){
+        resultado = num1 + num2
+        alert('seu resultado foi ${resultado}')
+    }else if (op == "-"){
+        resultado = num1 - num2
+        alert('seu resultado foi ${resultado}')
+    }else if (op == "*"){
+        resultado = num1 * num2
+        alert('seu resultado foi ${resultado}')
+    }else if (op == "/"){
+        resultado = num1 / num2
+        alert('seu resultado foi ${resultado}')
+    }else{
+        alert("resultado invalido, reinicie a guia")
+    }
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questão 22</title>
+  </head>
+<body>
+    <div id="main" class="h-screen flex items-center justify-center">
+        <form 
+            class="bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            id="meuForm" action="" method="get"
+            >
+            <div class="mb-4 ">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="palavra">
+                  Digite uma palavra ou frase para verificar se é palíndromo
+                </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text" name="palavra" id="palavra" placeholder="Ex: arara, Ame o poema">
+            </div>
+            
+            <div class="flex items-center justify-center">
+                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Verificar">
+            </div>
+        </form>
+    </div>
+    <script>
+
+        document.getElementById("meuForm").addEventListener("submit", function (e){
+        e.preventDefault()
+
+        let palavraInput = document.getElementById("palavra")
+        let palavra = palavraInput.value
+
+        if (palavra.trim() === "") {
+            alert("Por favor, digite uma palavra ou frase.")
+            return
+        }
+
+        let palavraLimpa = palavra.toLowerCase().replace(/[^a-z0-9]/g, '')
+        let palavraInvertida = palavraLimpa.split('').reverse().join('')
+        let ehPalindromo = palavraLimpa === palavraInvertida
+
+        document.getElementById("meuForm").remove()
+
+        document.getElementById("main").innerHTML = `
+        <div class='min-w-80 bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col'>
+            <h1 class='font-bold text-lg mb-2'> 
+            Resultado: 
+            </h1>
+            <p>
+                "${palavra}" ${ehPalindromo ? 'é' : 'não é'} um palíndromo!
+            </p>
+            </div>
+            `
+        })
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
