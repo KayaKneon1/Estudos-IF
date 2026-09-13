@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questão 10</title>
+  </head>
+  <body>
+    <section id="sec10">
+      <h2>10. Herança</h2>
+      <p>
+        Classes com herança: Professor extends Pessoa, Livro/Artigo extends
+        MaterialDidatico:
+      </p>
+      <pre id="out10"></pre>
+    </section>
+
+    <script>
+      class Pessoa {
+        constructor(nome, idade) {
+          this.nome = nome;
+          this.idade = idade;
+        }
+
+        apresentar() {
+          return `Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
+        }
+      }
+
+      class Aluno extends Pessoa {
+        constructor(nome, idade, curso) {
+          super(nome, idade);
+          this.curso = curso;
+        }
+
+        apresentar() {
+          return `Sou o aluno ${this.nome}, tenho ${this.idade} anos e curso ${this.curso}.`;
+        }
+      }
+
+      class Professor extends Pessoa {
+        constructor(nome, idade, disciplina) {
+          super(nome, idade);
+          this.disciplina = disciplina;
+        }
+
+        apresentar() {
+          return `Sou o professor ${this.nome}, tenho ${this.idade} anos e leciono ${this.disciplina}.`;
+        }
+      }
+
+      class MaterialDidatico {
+        constructor(titulo, autor, ano) {
+          this.titulo = titulo;
+          this.autor = autor;
+          this.ano = ano;
+        }
+
+        exibirInfo() {
+          return `${this.titulo} - ${this.autor} (${this.ano})`;
+        }
+      }
+
+      class Livro extends MaterialDidatico {
+        constructor(titulo, autor, ano, editora) {
+          super(titulo, autor, ano);
+          this.editora = editora;
+        }
+
+        exibirInfo() {
+          return `Livro: ${this.titulo} - ${this.autor} (${this.ano}), Editora: ${this.editora}`;
+        }
+      }
+
+      class Artigo extends MaterialDidatico {
+        constructor(titulo, autor, ano, revista) {
+          super(titulo, autor, ano);
+          this.revista = revista;
+        }
+
+        exibirInfo() {
+          return `Artigo: ${this.titulo} - ${this.autor} (${this.ano}), Revista: ${this.revista}`;
+        }
+      }
+
+      const alunoH = new Aluno("Pedro", 22, "Direito");
+      const professorH = new Professor("Luciana", 40, "História");
+      const livroH = new Livro(
+        "Sapiens",
+        "Harari",
+        2011,
+        "Companhia das Letras",
+      );
+      const artigoH = new Artigo(
+        "Machine Learning",
+        "Costa",
+        2022,
+        "IEEE",
+      );
+
+      let saida10 = "";
+      saida10 += alunoH.apresentar() + "\n";
+      saida10 += professorH.apresentar() + "\n";
+      saida10 += livroH.exibirInfo() + "\n";
+      saida10 += artigoH.exibirInfo() + "\n";
+
+      document.getElementById("out10").textContent = saida10;
+    </script>
+  </body>
+</html>

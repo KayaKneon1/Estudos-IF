@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>questão 4</title>
+  </head>
+  <body>
+    <section id="sec4">
+      <h2>4. Definindo objetos</h2>
+      <p>Objeto <code>artigo</code> com método <code>exibirDados()</code>:</p>
+      <pre id="out4"></pre>
+    </section>
+
+    <script>
+      const artigo = {
+        titulo: "A Revolução dos Bichos",
+        autor: "George Orwell",
+        ano: 1945,
+        exibirDados() {
+          return `Título: ${this.titulo}, Autor: ${this.autor}, Ano: ${this.ano}`;
+        },
+      };
+
+      document.getElementById("out4").textContent = artigo.exibirDados();
+    </script>
+  </body>
+</html>

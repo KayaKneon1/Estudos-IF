@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exemplo 1</title>
+  </head>
+  <body>
+    <form id="myForm">
+        <!-- retirando o valor pelo html -->
+      <input type="text" id="textInput" name="textInput" />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var inputValue = document.getElementById("textInput").value; // pegaa o valor do input
+          console.log(inputValue);// imprimir pelo terminal
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+</head>
+<body>
+  <h1>Calculadora</h1>
+
+  <form id="formCalculadora">
+    <label>Primeiro número:</label>
+    <input type="number" step="any" id="num1" required>
+    <br><br>
+
+    <label>Segundo número:</label>
+    <input type="number" step="any" id="num2" required>
+    <br><br>
+
+    <label>Operação:</label>
+    <select id="operacao" required>
+      <option value="soma">Adição</option>
+      <option value="subtracao">Subtração</option>
+      <option value="multiplicacao">Multiplicação</option>
+      <option value="divisao">Divisão</option>
+    </select>
+    <br><br>
+
+    <button type="submit">Calcular</button>
+  </form>
+
+  <h2 id="resultado"></h2>
+
+  <script>
+    const form = document.getElementById('formCalculadora');
+    const resultado = document.getElementById('resultado');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // impede o envio padrão do formulário
+
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const operacao = document.getElementById('operacao').value;
+
+      let res;
+
+      switch (operacao) {
+        case 'soma':
+          res = num1 + num2;
+          break;
+        case 'subtracao':
+          res = num1 - num2;
+          break;
+        case 'multiplicacao':
+          res = num1 * num2;
+          break;
+        case 'divisao':
+          if (num2 === 0) {
+            resultado.textContent = 'Erro: não é possível dividir por zero.';
+            return;
+          }
+          res = num1 / num2;
+          break;
+        default:
+          resultado.textContent = 'Operação inválida.';
+          return;
+      }
+
+      resultado.textContent = 'Resultado: ' + res;
+    });
+  </script>
+</body>
+</html>
