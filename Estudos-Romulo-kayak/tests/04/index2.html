@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo de Loop For</title>
+  </head>
+  <body>
+    <h2>Números de 1 a 5:</h2>
+    <ul id="numeros"></ul>
+
+    <script>
+      var numerosList = document.getElementById("numeros")
+      var numeros = [1, 2, 3, 4, 5]
+      for (var numero of numeros) {
+        var li = document.createElement("li")
+        li.textContent = numero
+        numerosList.appendChild(li)
+      }
+    </script>
+  </body>
+</html>

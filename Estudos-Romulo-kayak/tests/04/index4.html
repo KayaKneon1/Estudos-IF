@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo de Loop Do-While</title>
+  </head>
+  <body>
+    <h2>Frutas:</h2>
+    <ul id="frutas"></ul>
+
+    <script>
+      // Selecionando o elemento ul onde as frutas serão exibidas
+      var frutasList = document.getElementById("frutas");
+
+      // Lista de frutas
+      var frutas = ["maçã", "banana", "laranja", "uva", "morango"];
+
+      // Índice inicial
+      var i = 0;
+
+      // Loop do-while para adicionar frutas à lista
+      do {
+        var li = document.createElement("li"); // Criando elemento li
+        li.textContent = frutas[i]; // Definindo o texto do elemento li
+        frutasList.appendChild(li); // Adicionando o elemento li à lista ul
+        i++; // Incrementando o índice
+      } while (i < frutas.length);
+    </script>
+  </body>
+</html>

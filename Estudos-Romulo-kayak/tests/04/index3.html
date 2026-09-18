@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo de Loop While</title>
+  </head>
+  <body>
+    <h2>Cores:</h2>
+    <ul id="cores"></ul>
+
+    <script>
+      // Selecionando o elemento ul onde as cores serão exibidas
+      var coresList = document.getElementById("cores");
+
+      // Lista de cores
+      var cores = ["vermelho", "verde", "azul", "amarelo", "laranja"];
+
+      // Índice inicial
+      var i = 0;
+
+      // Loop while para adicionar cores à lista
+      while (i < cores.length) {
+        var li = document.createElement("li"); // Criando elemento li
+        li.textContent = cores[i]; // Definindo o texto do elemento li
+        coresList.appendChild(li); // Adicionando o elemento li à lista ul
+        i++; // Incrementando o índice
+      }
+    </script>
+  </body>
+</html>
