@@ -15,7 +15,7 @@ Aplicação web de controle financeiro pessoal feita com Node.js, Express, Prism
    npm install
    ```
 
-2. Crie um arquivo `.env` na raiz, usando `.env.example` como modelo. O banco SQLite local é configurado com `DATABASE_URL="file:./dev.db"`.
+2. Opcionalmente, crie um arquivo `.env` na raiz usando `.env.example` como modelo. Sem configuração adicional, o banco SQLite local fica em `prisma/dev.db`.
 3. Aplique as migrações e gere o Prisma Client:
 
    ```bash
