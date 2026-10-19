@@ -1,4 +1,4 @@
-# Meu Caixa
+# Meu Norte
 
 Aplicação web de controle financeiro pessoal feita com Node.js, Express, Prisma e SQLite. Toda a interação é feita pelo navegador, com HTML, CSS e JavaScript.
 
