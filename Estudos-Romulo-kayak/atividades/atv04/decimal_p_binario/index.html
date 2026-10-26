@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="pt-BR">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Page Title</title>
-    <link rel='stylesheet' href='main.css'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conversão decimal para binário</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    
+    <main class="card">
+        <h1>Decimal para binário</h1>
+        <p class="intro">Converta um número decimal inteiro usando uma pilha para guardar os restos das divisões por 2.</p>
+
+        <form id="conversion-form">
+            <label for="decimal-number">Número decimal não negativo</label>
+            <input id="decimal-number" name="decimal-number" type="number" min="0" step="1" required inputmode="numeric">
+            <button type="submit">Converter</button>
+        </form>
+
+        <p id="error-message" class="message error" role="alert" hidden></p>
+        <section id="result" class="result" aria-live="polite" hidden>
+            <h2>Resultado</h2>
+            <p>Representação binária: <strong id="binary-result"></strong></p>
+            <h3>Restos armazenados na pilha</h3>
+            <p class="hint">Esta é a sequência obtida ao desempilhar os restos, na mesma ordem do resultado binário.</p>
+            <ol id="remainder-stack" class="stack" aria-label="Restos na pilha"></ol>
+        </section>
+    </main>
+    <script src="main.js"></script>
 </body>
-<script src="main.js"></script>
 </html>

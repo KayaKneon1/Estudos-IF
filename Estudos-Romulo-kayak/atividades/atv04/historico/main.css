@@ -1,0 +1,113 @@
+:root {
+    color-scheme: light;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #172033;
+    background: #f1f5f9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 16px;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    width: min(100%, 720px);
+    padding: 32px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 12px 36px rgb(15 23 42 / 10%);
+}
+
+.back-link {
+    color: #2563eb;
+    font-size: 0.9rem;
+}
+
+h1 {
+    margin: 20px 0 8px;
+    line-height: 1.2;
+}
+
+.intro {
+    color: #526078;
+    line-height: 1.6;
+}
+
+kbd {
+    padding: 2px 6px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    background: #f8fafc;
+    font: inherit;
+    font-size: 0.85em;
+}
+
+label {
+    display: block;
+    margin: 24px 0 8px;
+    font-weight: 600;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 200px;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: 3px solid #bfdbfe;
+    border-color: #2563eb;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+button {
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+#history-status {
+    color: #526078;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 24px 20px;
+    }
+}
