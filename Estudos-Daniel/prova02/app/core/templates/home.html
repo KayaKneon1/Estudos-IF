@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <h1>Bem-vindo à Página Inicial</h1>
+    <h2>Olá {{ user.first_name|default:user.username }}</h2>
+    <a href="{% url 'lista_usuarios' %}">Lista de Usuários</a>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Sair</button>
+    </form>
+    <ul>
+        {% for livro in livros %}
+            <li>
+                {{ livro.titulo }} - {{ livro.Autor }} - {{ livro.Ano }}
+                <a href="{% url 'editar' livro.id %}">Editar</a>
+                <form action="{% url 'deletar' livro.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Excluir</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cadastrar_livro' %}">Cadastrar Livro</a>
+</body>
+</html>
