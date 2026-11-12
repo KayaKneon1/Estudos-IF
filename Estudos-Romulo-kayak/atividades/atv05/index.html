@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4f7fb">
+    <title>Manipulação de fila</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>  
+        <h1>Manipulação de fila</h1><br>
+
+        <section class="queue-panel" aria-labelledby="queueTitle">
+            <div class="queue-heading">
+                <h2 id="queueTitle">Fila atual</h2>
+            </div>
+            <div id="queue" role="list" aria-label="Elementos da fila">
+                <p class="queue-empty">A fila está vazia.</p>
+            </div>
+        </section>
+
+        <form id="meuForm">
+            <input id="elemento" type="text" placeholder="Digite um elemento" aria-label="Elemento para enfileirar"
+                autocomplete="off" required>
+            <button type="submit">Enfileirar</button>
+        </form>
+
+        <section class="operations" aria-label="Operações da fila">
+            <button id="dequeueButton" type="button">Desenfileirar</button>
+            <button id="peekButton" type="button">Peek</button>
+            <button id="frontButton" type="button">Front</button>
+            <button id="rearButton" type="button">Rear</button>
+            <button id="sizeButton" type="button">Size</button>
+            <button id="isEmptyButton" type="button">Is Empty</button>
+            <button id="printButton" type="button">Print</button>
+        </section>
+
+        <div id="logger" role="status" aria-live="polite"></div>
+    </main>
+
+    <script src="fila.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
