@@ -1,4 +1,4 @@
-function Cartao({ titulo, preco }){
+export default function Cartao({ titulo, preco }){
     return(
         <div>
             <h3>{titulo}</h3>
@@ -6,5 +6,3 @@ function Cartao({ titulo, preco }){
         </div>
     );
 }
-
-export default Cartao

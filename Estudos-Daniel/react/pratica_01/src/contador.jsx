@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Contador() {
+export default function Contador() {
     const [count,setCount] = useState(0)
 
     return (
@@ -9,5 +9,3 @@ function Contador() {
         </button>
     )
 }
-
-export default Contador

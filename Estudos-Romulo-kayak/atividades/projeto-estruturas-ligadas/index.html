@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131c">
+  <title>Playlist ligada | Estruturas de Dados</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="linked-list.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>Playlist <span>em cadeia</span></h1>
+    </header>
+
+    <section class="playlist panel" aria-labelledby="playlist-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">VISUALIZAÇÃO DOS NÓS</p>
+          <h2 id="playlist-title">Sua playlist</h2>
+        </div>
+        <span id="list-size" class="count">0 músicas</span>
+      </div>
+      <div id="list-view" class="list-view" aria-live="polite">
+        <p class="empty-state">A lista está vazia. Adicione uma música para começar.</p>
+      </div>
+      <div class="legend" aria-label="Legenda">
+        <span><i class="legend-dot head-dot"></i> head (início)</span>
+        <span><i class="legend-dot tail-dot"></i> último nó (next = null)</span>
+      </div>
+    </section>
+
+    <div class="controls">
+      <section class="panel control-card">
+        <p class="eyebrow">INSERÇÃO</p>
+        <h2>Adicionar música</h2>
+        <form id="add-form">
+          <label for="song-title">Nome da música</label>
+          <input id="song-title" type="text" maxlength="60" placeholder="Ex.: O Leãozinho" required>
+          <label for="insert-position">Posição (para inserir no meio)</label>
+          <input id="insert-position" type="number" min="0" value="0" inputmode="numeric">
+          <div class="button-row">
+            <button type="submit">Adicionar ao fim</button>
+            <button type="button" class="button-secondary" id="add-start">Adicionar no início</button>
+            <button type="button" class="button-secondary" id="add-position">Inserir na posição</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel control-card">
+        <p class="eyebrow">REMOÇÃO E BUSCA</p>
+        <h2>Gerenciar nós</h2>
+        <form id="remove-form">
+          <label for="remove-position">Posição a remover</label>
+          <div class="inline-form">
+            <input id="remove-position" type="number" min="0" inputmode="numeric" placeholder="Ex.: 0" required>
+            <button type="submit" class="button-danger">Remover</button>
+          </div>
+        </form>
+        <form id="search-form">
+          <label for="search-title">Buscar música</label>
+          <div class="inline-form">
+            <input id="search-title" type="search" placeholder="Nome da música" required>
+            <button type="submit" class="button-secondary">Buscar</button>
+          </div>
+        </form>
+        <button id="clear-list" class="text-button" type="button">Limpar playlist</button>
+      </section>
+    </div>
+
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>
